@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "mms_db"
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root_password"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  app:
+    build: .
+    container_name: mms
+    depends_on:
+      - db
+    ports:
+      - "7070:7070"
+    environment:
+
+      PORT: 7070
+
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mms_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root_password
+
+      JAVA_OPTS: "-Xms256m -Xmx512m"
+
+    restart: unless-stopped
+
+volumes:
+  postgres_data: {}

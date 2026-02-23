@@ -17,7 +17,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
     show-sql: false
@@ -39,7 +39,7 @@ spring:
     schemas: postgres
 
 server:
-  port: ${server.port}
+  port: ${SERVER_PORT}
 
 logging:
   config: classpath:log4j2.yml

@@ -7,9 +7,7 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
-    tomcat:
-      test-on-borrow: true
-      validation-query: SELECT 1
+
     hikari:
       maximum-pool-size: 16
       minimum-idle: 8
@@ -22,15 +20,15 @@ spring:
       ddl-auto: validate
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-    show-sql: true
+    show-sql: false
+
     properties:
       hibernate:
         jdbc:
           batch_size: 10
         order_updates: true
         order_inserts: true
-        format_sql: true
-        generate_statistics: true
+        format_sql: false
         default_schema: postgres
 
   flyway:
@@ -41,7 +39,7 @@ spring:
     schemas: postgres
 
 server:
-  port: ${PORT}
+  port: ${SERVER_PORT}
 
 logging:
   config: classpath:log4j2.yml

@@ -12,7 +12,7 @@ public record TerminalRequest(
         @NotBlank(message = "webhook url is blank")
         String webhookUrl,
 
-        @NotNull(message = "terminal status is blank")
+        @NotBlank(message = "terminal status is blank")
         Status terminalStatus
 ) {
 }

@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface TerminalRepository extends JpaRepository<TerminalEntity,Long> {
-    @Query("""
-        SELECT t
-        FROM terminal_entity t
-        WHERE t.merchant.id = :id
-    """)
+//    @Query("""
+//        SELECT t
+//        FROM terminal_entity t
+//        WHERE t.merchant.id = :id
+//    """)
     Page<TerminalEntity> getTerminalEntitiesByMerchantId(@Param("id") Long id, Pageable pageable);
 }

@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/mms/")
+@RequestMapping("/api/v1/mms/terminals/")
 @RestController
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class PointsOfSalesController {
@@ -27,7 +27,7 @@ public class PointsOfSalesController {
         return service.getByMerchantId(id, page, size);
     }
 
-    @PostMapping("/pos")
+    @PostMapping
     public ResponseEntity<TerminalResponse> registerPos(@Valid @RequestBody TerminalRequest request){
         TerminalEntity entityByRequest = service.getEntityByRequest(request);
         TerminalEntity savedEntity = service.register(entityByRequest);

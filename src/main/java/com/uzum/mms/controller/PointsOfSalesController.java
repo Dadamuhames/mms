@@ -6,7 +6,9 @@ import com.uzum.mms.entity.MerchantEntity;
 import com.uzum.mms.entity.TerminalEntity;
 import com.uzum.mms.service.TerminalService;
 import jakarta.validation.Valid;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.query.Param;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/mms/")
 @RestController
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class PointsOfSalesController {
     TerminalService service;
 

@@ -17,7 +17,7 @@ public class TerminalEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "merchant_id", nullable = false)
-    MerchantEntity merchantId;
+    MerchantEntity merchant;
 
     String webhookUrl;
 

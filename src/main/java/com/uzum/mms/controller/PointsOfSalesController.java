@@ -30,7 +30,6 @@ public class PointsOfSalesController {
         TerminalEntity savedEntity = service.register(entityByRequest);
         TerminalResponse response = service.getResponseByEntity(savedEntity);
         return ResponseEntity
-                .ok()
-                .body(response);
+                .ok(response);
     }
 }

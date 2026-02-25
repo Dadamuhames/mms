@@ -19,4 +19,5 @@ public record MerchantResponse(
         UUID firstAccountId,
 
         UUID secondAccountId
+
 ) {}

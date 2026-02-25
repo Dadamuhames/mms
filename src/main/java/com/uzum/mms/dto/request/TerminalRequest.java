@@ -7,12 +7,12 @@ import jakarta.validation.constraints.NotNull;
 
 public record TerminalRequest(
         @NotNull(message = "merchant id is blank")
-        MerchantEntity merchantId,
+        Long merchantId,
 
         @NotBlank(message = "webhook url is blank")
         String webhookUrl,
 
-        @NotNull(message = "terminal status is blank")
+        @NotBlank(message = "terminal status is blank")
         Status terminalStatus
 ) {
 }

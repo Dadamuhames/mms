@@ -12,4 +12,7 @@ public class Constants {
     @Value(value = "${url.coreLedger}")
     public static String coreLedgerUrl;
 
+
+    public static final int MAX_PAGE_SIZE = 10;
+
 }

@@ -9,4 +9,5 @@ import org.springframework.data.domain.Pageable;
 public interface TerminalService {
     TerminalResponse register(TerminalRequest terminalRequest);
     Page<TerminalResponse> getTerminalByMerchantId(Long id, Pageable pageable);
+    TerminalResponse getByTerminalId(Long id);
 }

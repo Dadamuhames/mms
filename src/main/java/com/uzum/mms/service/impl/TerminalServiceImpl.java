@@ -25,6 +25,7 @@ public class TerminalServiceImpl implements TerminalService {
     TerminalMapper mapper;
     TerminalRepository terminalRepository;
     MerchantRepository merchantRepository;
+    private final TerminalMapper terminalMapper;
 
     @Override
     @Transactional
@@ -48,6 +49,15 @@ public class TerminalServiceImpl implements TerminalService {
     public Page<TerminalResponse> getTerminalByMerchantId(Long id, Pageable pageable) {
         Page<TerminalEntity> terminals = terminalRepository.getTerminalEntitiesByMerchant_Id(id, pageable);
         return terminals.map(mapper::toResponse);
+    }
+
+    @Override
+    public TerminalResponse getByTerminalId(Long id) {
+        var terminalEntity = terminalRepository
+                .findById(id)
+                .orElseThrow(() -> new DataNotFoundException("Terminal not found with id" + id));
+
+        return terminalMapper.toResponse(terminalEntity);
     }
 
 }

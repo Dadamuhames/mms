@@ -30,4 +30,10 @@ public class TerminalController {
         TerminalResponse register = terminalService.register(request);
         return ResponseEntity.ok(register);
     }
+
+    @GetMapping("/by-terminal-id/{id}")
+    public TerminalResponse getByTerminalId(@PathVariable Long id) {
+        return terminalService.getByTerminalId(id);
+    }
+
 }
